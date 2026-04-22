@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: sky-poc-test
+
+spring.mvc.problemdetails.enabled: true

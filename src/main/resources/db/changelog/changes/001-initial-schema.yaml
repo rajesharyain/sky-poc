@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-initial-schema
+      author: sky-poc
+      changes:
+        - createTable:
+            tableName: tb_user
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: tb_project
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: tb_project
+            baseColumnNames: user_id
+            referencedTableName: tb_user
+            referencedColumnNames: id
+            constraintName: fk_project_user
