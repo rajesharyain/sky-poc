@@ -1,4 +1,4 @@
-# Skynews (Spring Boot)
+# Sky (Spring Boot)
 
 This is a Spring Boot 3 application with a simple **User** module (CRUD-ish) backed by **PostgreSQL** (Liquibase-managed schema).
 
